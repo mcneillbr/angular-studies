@@ -2,9 +2,9 @@ import { Component, Input, OnInit, Inject } from '@angular/core';
 
 
 @Component({
-  selector: 'app-hello',
+  selector: 'hello',
   template: `
-  <h1>Hello {{ 'vazio'}}!</h1>
+  <h1>Hello {{ name || 'vazio' }}!</h1>
   <button routerLink="/sidekicks">Go to sidekicks</button>
   `,
   styles: [`h1 { font-family: Lato; }`]
