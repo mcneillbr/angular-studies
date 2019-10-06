@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { isNumber } from 'util';
+import { isNumber } from './../helpers/converter';
 import { SharedDataService } from '../../services/shared-data.service';
 
 @Component({
