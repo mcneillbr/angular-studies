@@ -28,7 +28,11 @@ function getObjValue(target, path, fallback = null) {
  * @param {*} value
  */
 function isNumber(value) {
-  return (typeof value != undefined || value != null) && !isNaN(Number(value));
+  return (
+    ( typeof value != undefined
+    || value != null)
+    && !isNaN(Number(+value))
+  );
 }
 
 /**
@@ -37,7 +41,7 @@ function isNumber(value) {
  
  */
 function toNumber(value) {
-  return Number(value);
+  return new Number(value);
 }
 
 /**
@@ -48,7 +52,7 @@ function toNumber(value) {
  */
 function tryToNumber(value, fallback) {
   fallback = NaN || fallback;
-  const num = Number(value);
+  const num = Number(+value);
   return isNaN(num) ? fallback : num;
 }
 
@@ -70,7 +74,12 @@ function toBoolean(value) {
  * @param {string} value
  */
 function parseBoolean(value) {
-  switch (value.toLocaleLowerCase().trim()) {
+  value = value || false;
+  const v = value
+    .toString()
+    .toLocaleLowerCase()
+    .trim();
+  switch (v) {
     case "on":
     case "true":
     case "yes":
@@ -79,10 +88,7 @@ function parseBoolean(value) {
   }
   return Number(value) > 0 ? true : false;
 }
-
-export {
-  isNumber,
-  toBoolean,
-  toNumber,
-  tryToNumber
-};
+export function isDate(value: any): value is Date {
+  return value instanceof Date && !isNaN(+value);
+}
+export { isNumber, toBoolean, toNumber, tryToNumber };

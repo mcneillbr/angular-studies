@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { isNumber } from './../helpers/converter';
+import { isNumber } from './../../helpers/converter';
 import { SharedDataService } from '../../services/shared-data.service';
 
 @Component({
@@ -23,10 +23,15 @@ export class MainComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       const id =  params.get('id');
-      console.log('/id', id);
-      if (id && !isNaN(parseInt(id, 10))) {
+      console.log(` route /id value[${id}]`);
+
+       if (id && !isNumber(id)) {
         this.router.navigate(['/404']);
       }
+
+      // if (id && !isNaN(parseInt(id, 10))) {
+      //   this.router.navigate(['/404']);
+      // }
     });
     this.shareData.changeData({time: new Date(), data: 'main-component.set'});
   }
