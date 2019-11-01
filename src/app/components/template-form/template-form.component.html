@@ -26,7 +26,7 @@ class="form-container"
 </mat-radio-group>
 <div>Your favorite season is: {{favoriteSeason}}</div>
   </fieldset>
-  <fieldset>
+  <fieldset class="f-checkbox-list">
     <legend>Pick your favorite season</legend>
     <div class="ckbox-group">
        <mat-checkbox
@@ -35,17 +35,33 @@ class="form-container"
           class="ckbox"
           [value]="season"
           [checked]="false"
-          ngModel
+          [ngModel]="false"
           #name="ngModel"
           (change)="onChangeCkbox($event, name)"
           indeterminate="true"
           labelPosition="before"
-          [disabled]="false">
+          [disabled]="false"
+          [attr.mcheck]="!!name.value"
+          >
         {{season}}, i = {{ i + 1}}
       </mat-checkbox>
+    </div>
+    <div class="total">
+      <span class="totalChecked"> Total Checked: </span><br>
+      <span class="totalUnChecked"> Total Unchecked: </span>
     </div>
   </fieldset>
   <div>
     <button type="submit" color="accent" class="btn" mat-button>Send</button>
   </div>
 </form>
+
+
+<div>
+  <h3>Introduction</h3>
+  <h4>page</h4>
+  <h3>Body</h3>
+  <h4>subpage</h4>
+  <h3>Conclusion</h3>
+  <h4>p</h4>
+</div>

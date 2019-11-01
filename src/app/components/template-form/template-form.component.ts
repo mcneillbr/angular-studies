@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgModel } from '@angular/forms';
+import { NgModel, NgForm} from '@angular/forms';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 
 @Component({
@@ -19,10 +19,14 @@ seasons: string[] = ['Winter', 'Spring', 'Summer', 'Autumn'];
 
   onChangeCkbox(e: MatCheckboxChange, model: NgModel) {
     console.log(e, model);
+    if (e.checked) {
+      model.control.setValue(e.source.value);
+    }
   }
 
-  onSubmit(e: Event, frm) {
+  onSubmit(e: Event, frm: NgForm) {
     console.log(e, frm);
+    console.log(frm.value);
   }
 
 

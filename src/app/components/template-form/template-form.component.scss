@@ -33,3 +33,56 @@ fieldset {
     margin: 3px;
   }
 }
+
+//   ::root {
+//   counter-reset: checked-sum, unchecked-sum;
+// }
+
+fieldset.f-checkbox-list {
+  counter-reset: m-checked-sum m-unchecked-sum;
+  mat-checkbox[mcheck=true] {
+    counter-increment: m-checked-sum;
+  }
+  mat-checkbox[mcheck=false] {
+    counter-increment: m-unchecked-sum;
+  }
+
+  .totalUnChecked::after {
+  content:  "value " counter(m-unchecked-sum);
+}
+
+.totalChecked::after {
+  content: "value " counter(m-checked-sum);
+}
+}
+
+
+:host ::ng-deep {
+  counter-reset: checked-sum unchecked-sum;
+    input[type="checkbox"] {
+  background: blue;
+  counter-increment: unchecked-sum;
+}
+
+input[type="checkbox"]:checked {
+  counter-increment: checked-sum;
+}
+
+
+
+}
+
+
+
+div {
+  counter-reset: section 1 page 0; 
+}
+div > h3::before {
+counter-increment: section;               /* Increment the section counter*/
+content: "Section" counter(section) ": "; /* Display the counter */
+}
+
+div > h4::before {
+counter-increment: page;               /* Increment the section counter*/
+content: "page" counter(page) ": "; /* Display the counter */
+}
