@@ -39,12 +39,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
       registerLocaleData(localeFr, "fr");
       registerLocaleData(localeBr, "br");
       registerLocaleData(localeEs, "es");
-      console.log({
-        br: formatDate(d, "dd/MM/yyyy", "br"),
-        es: formatDate(d, "dd/MM/yyyy", "es"),
-        fr: formatDate(d, "dd/MM/yyyy", "fr"),
-        en: formatDate(d, "dd/MM/yyyy", "e")
-      });
+      // console.log({
+      //   br: formatDate(d, "dd/MM/yyyy", "br"),
+      //   es: formatDate(d, "dd/MM/yyyy", "es"),
+      //   fr: formatDate(d, "dd/MM/yyyy", "fr"),
+      //   en: formatDate(d, "dd/MM/yyyy", "en")
+      // });
       return formatDate(d, "dd/MM/yyyy", "es");
     } catch (e) {
       console.error(e);

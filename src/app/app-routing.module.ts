@@ -4,8 +4,14 @@ import { MainComponent } from "./components/main/main.component";
 import { AboutSiteComponent } from "./components/about-site/about-site.component";
 import { CountryComponent } from "./components/country/country.component";
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
+import { TemplateFormComponent } from './components/template-form/template-form.component';
 
 const routes: Routes = [
+  {
+    path: "template-form",
+    component: TemplateFormComponent,
+    data: { name: "form template" }
+  },
   {
     path: "about",
     component: AboutSiteComponent,

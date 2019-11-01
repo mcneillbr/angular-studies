@@ -4,5 +4,32 @@
 }
 
 .form-container > * {
+  width: 90%;
+}
+fieldset {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+}
+
+.m--full-width {
   width: 100%;
+}
+
+.m--radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.m--radio-button {
+  margin: 5px;
+}
+
+.ckbox-group {
+  display: flex;
+  flex-direction: column;
+  .ckbox{
+    margin: 3px;
+  }
 }

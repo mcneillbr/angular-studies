@@ -1,10 +1,51 @@
-<form 
+<form
+ngForm
+name="mainForm"
 #f="ngForm"
 class="form-container"
-ngForm>
+(ngSubmit)="onSubmit($event, f)"
+>
   <fieldset>
       <mat-form-field>
     <input matInput placeholder="Input">
   </mat-form-field>
+    <mat-form-field class="m--full-width">
+    <textarea matInput placeholder="Leave a comment"></textarea>
+  </mat-form-field>
   </fieldset>
+  <fieldset>  
+    <label id="m--radio-group-label">Pick your favorite season</label>
+<mat-radio-group name="gradio"
+*ngFor="let season of seasons; let i=index"
+  aria-labelledby="m--radio-group-label"
+  class="m--radio-group"
+  [(ngModel)]="favoriteSeason">
+  <mat-radio-button 
+  class="m--radio-button"  
+  [value]="season">{{season}}, i = {{ i + 1}}</mat-radio-button>
+</mat-radio-group>
+<div>Your favorite season is: {{favoriteSeason}}</div>
+  </fieldset>
+  <fieldset>
+    <legend>Pick your favorite season</legend>
+    <div class="ckbox-group">
+       <mat-checkbox
+       *ngFor="let season of seasons; let i=index"
+       [name]="'cbbox_season_' + i"
+          class="ckbox"
+          [value]="season"
+          [checked]="false"
+          ngModel
+          #name="ngModel"
+          (change)="onChangeCkbox($event, name)"
+          indeterminate="true"
+          labelPosition="before"
+          [disabled]="false">
+        {{season}}, i = {{ i + 1}}
+      </mat-checkbox>
+    </div>
+  </fieldset>
+  <div>
+    <button type="submit" color="accent" class="btn" mat-button>Send</button>
+  </div>
 </form>
