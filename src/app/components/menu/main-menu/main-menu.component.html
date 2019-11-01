@@ -5,10 +5,15 @@
   <button mat-menu-item (click)="onGoToClick('/countries')" routerLink="/countries" routerLinkActive="menu-active">Countries</button>
 </mat-menu>
 
-<button mat-button [matMenuTriggerFor]="belowMenu">Below</button>
+<button mat-button [matMenuTriggerFor]="belowMenu">Form</button>
 <mat-menu #belowMenu="matMenu" yPosition="below">
-  <button mat-menu-item>Item 1</button>
-  <button mat-menu-item>Item 2</button>
+  <button 
+  mat-menu-item
+  (click)="onGoToClick('/template-form')"
+  routerLink="/template-form"
+  routerLinkActive="menu-active"
+  >Template Form</button>
+  <button mat-menu-item>Reactive Form</button>
 </mat-menu>
 
 <button mat-button [matMenuTriggerFor]="beforeMenu">Before</button>

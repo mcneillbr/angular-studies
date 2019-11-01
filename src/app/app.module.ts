@@ -25,6 +25,7 @@ import { AboutSiteComponent } from './components/about-site/about-site.component
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CountryComponent } from './components/country/country.component';
+import { TemplateFormComponent } from './components/template-form/template-form.component';
 
 /*
 AppRoutingModule dever o ultimo a ser importado
@@ -50,7 +51,8 @@ AppRoutingModule dever o ultimo a ser importado
     AboutSiteComponent,
     HeaderComponent,
     FooterComponent,
-    CountryComponent
+    CountryComponent,
+    TemplateFormComponent
   ],
   entryComponents: [
 
