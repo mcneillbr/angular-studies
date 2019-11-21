@@ -29,5 +29,26 @@ seasons: string[] = ['Winter', 'Spring', 'Summer', 'Autumn'];
     console.log(frm.value);
   }
 
+  /**
+   * Refactor sample
+   * using obj literals
+   */
+
+  getAnimalSimple = (name) => {
+    switch(name) {
+      case 'lion': {
+        return 'The Lion is animal';
+      }
+      case 'Chicken':
+      return 'Chicken is a bird';
+
+      default: return 'Animal not found';
+    }
+  }
+
+getAnimal = (name) => ({
+  lion: 'The Lion is animal',
+  chicken: 'Chicken is a bird',
+}[name] || 'Animal not found');
 
 }
